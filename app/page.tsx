@@ -6,34 +6,34 @@ import { EmailBroadcastMock } from './_marketing/mocks';
 
 const FEATURES = [
   {
-    icon: '✉',
-    title: 'Broadcast in One Click',
-    body: 'Send a personalized message to your entire team or lead list — instantly. No mail-merge gymnastics.',
-  },
-  {
-    icon: '📬',
-    title: 'Track Every Open',
-    body: 'Know exactly who opened, who clicked, and who needs a follow-up nudge — all in your dashboard.',
+    icon: '📣',
+    title: 'Broadcast to your whole team.',
+    body: 'One send reaches every teammate — whether it\'s 12 people or 1,200. Event recaps, product updates, recognition blasts.',
   },
   {
     icon: '🤝',
-    title: 'Built for Field Leaders',
-    body: 'Templates crafted for network marketing, D2D, and conference follow-up. Real language that converts.',
+    title: 'Automated onboarding sequences.',
+    body: 'New teammate joins? A pre-built drip kicks off automatically — welcome, training links, check-ins — on your schedule.',
+  },
+  {
+    icon: '⚡',
+    title: 'Transactional emails, handled.',
+    body: 'OTP codes, receipts, password resets — the emails your product has to send, delivered reliably every time.',
+  },
+  {
+    icon: '📊',
+    title: 'Open and click analytics.',
+    body: 'See exactly who opened, who clicked, and who you need to follow up with. Real data, not vanity metrics.',
   },
   {
     icon: '🔗',
-    title: 'Integrates with LeaderLeads',
-    body: 'Your leads flow directly from LeaderLeads into LeaderSend. No CSV exports, no copy-paste.',
-  },
-  {
-    icon: '📅',
-    title: 'Scheduled Sends',
-    body: 'Queue messages for the perfect moment — follow up 24 hours after a meeting without lifting a finger.',
+    title: 'Connects to LeaderHQ.',
+    body: 'Your team roster pulls in from LeaderHQ automatically. No CSV exports, no copy-paste, no manual sync.',
   },
   {
     icon: '🔒',
-    title: 'GDPR & CAN-SPAM Ready',
-    body: 'Unsubscribe handling, consent tracking, and compliance built in so you stay focused on selling.',
+    title: 'GDPR & CAN-SPAM Ready.',
+    body: 'Unsubscribe handling, consent tracking, and compliance built in so you stay focused on leading.',
   },
 ];
 
@@ -45,9 +45,14 @@ export default function MarketingHomePage() {
       <SuiteBar appUrl="https://send.leaderhq.io" />
       <SiteNav
         productSuffix="Send"
-        links={[{ label: 'Features', href: '/features' }, { label: 'How It Works', href: '/how-it-works' }, { label: 'Solutions', href: '#' }, { label: 'Blog', href: '/blog' }]}
-        ctaLabel="Get Started Free"
-        ctaHref="/signup"
+        links={[
+          { label: 'Features', href: '/#features' },
+          { label: 'How It Works', href: '/how-it-works' },
+          { label: 'Pricing', href: '/pricing' },
+          { label: 'Blog', href: '/blog' },
+        ]}
+        ctaLabel="Start free"
+        ctaHref="https://send.leaderhq.io/signup"
         loginHref="https://send.leaderhq.io/login"
       />
 
@@ -59,31 +64,38 @@ export default function MarketingHomePage() {
               <div>
                 <FadeIn>
                   <TypewriterHeadline
-                    staticPrefix="Send to"
-                    phrases={['your leads.', 'your whole team.', 'every follow-up.', 'your new reps.', 'your downline.']}
+                    staticPrefix="Never miss a"
+                    phrases={[
+                      'broadcast send.',
+                      'welcome email.',
+                      'drip sequence.',
+                      'follow-up message.',
+                      'onboarding email.',
+                      'campaign launch.',
+                    ]}
                     className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]"
                   />
                 </FadeIn>
 
                 <FadeIn delay={160}>
                   <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-zinc-600">
-                    LeaderSend gives field leaders a dead-simple way to broadcast messages, track opens, and follow up with every lead — without leaving the Leader ecosystem.
+                    Transactional and broadcast email built for field leaders. One dashboard to onboard new teammates, blast event recaps, and keep your whole organization in the loop.
                   </p>
                 </FadeIn>
 
                 <FadeIn delay={240}>
                   <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
                     <Link
-                      href="/signup"
+                      href="https://send.leaderhq.io/signup"
                       className="rounded-full bg-brand-green px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-green/90"
                     >
-                      Get Started Free
+                      Start free
                     </Link>
                     <Link
-                      href="/how-it-works"
+                      href="/#features"
                       className="rounded-full border border-zinc-300 px-7 py-3.5 text-sm font-semibold text-zinc-700 transition-colors hover:border-brand-navy hover:text-brand-navy"
                     >
-                      See How It Works →
+                      See all features →
                     </Link>
                   </div>
                 </FadeIn>
@@ -111,8 +123,29 @@ export default function MarketingHomePage() {
           </div>
         </FadeIn>
 
+        {/* ── Problem band ────────────────────────────────────────────────── */}
+        <section className="bg-brand-navy py-16 md:py-20">
+          <div className="mx-auto max-w-3xl px-4 md:px-6 text-center">
+            <FadeIn>
+              <p className="text-xl font-bold text-white sm:text-2xl">
+                You onboarded 12 new teammates last month. Did all 12 hear from you?
+              </p>
+            </FadeIn>
+            <FadeIn delay={100}>
+              <p className="mt-6 text-base leading-relaxed text-zinc-300">
+                Copy-pasted welcome texts. Forgotten follow-ups. Broadcast announcements buried in a group chat nobody checks. The best leaders lose momentum in their own organizations because the tooling can&apos;t keep up.
+              </p>
+            </FadeIn>
+            <FadeIn delay={180}>
+              <p className="mt-4 text-base font-semibold text-brand-green">
+                LeaderSend fixes all of it.
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+
         {/* ── Features grid ───────────────────────────────────────────────── */}
-        <section className="bg-white py-16 md:py-24">
+        <section id="features" className="bg-white py-16 md:py-24">
           <div className="mx-auto max-w-6xl px-4 md:px-6">
             <FadeIn>
               <div className="mb-12 text-center">
@@ -154,9 +187,21 @@ export default function MarketingHomePage() {
 
             <div className="grid gap-8 md:grid-cols-3">
               {[
-                { step: '1', title: 'Connect your leads', body: "LeaderLeads syncs your contacts automatically. Or import a CSV — either way you're set up in seconds." },
-                { step: '2', title: 'Write (or pick) your message', body: 'Use a proven template or write your own. Personalization tokens drop in names and details automatically.' },
-                { step: '3', title: 'Send and track', body: 'Hit send and watch the opens roll in. Follow-up reminders surface the contacts who need another touch.' },
+                {
+                  step: '01',
+                  title: 'Connect your list.',
+                  body: 'Import your team roster or let LeaderSend pull it from LeaderHQ automatically. Your contacts are ready in seconds.',
+                },
+                {
+                  step: '02',
+                  title: 'Build your send.',
+                  body: 'Choose a broadcast, drip sequence, or transactional template. Write once, send to everyone — or let automation send for you.',
+                },
+                {
+                  step: '03',
+                  title: 'Watch it land.',
+                  body: 'Real-time delivery stats, open rates, and click tracking. Know exactly who got your message and who needs a nudge.',
+                },
               ].map((item, i) => (
                 <FadeIn key={item.step} delay={i * 80}>
                   <div className="text-center">
@@ -169,30 +214,44 @@ export default function MarketingHomePage() {
                 </FadeIn>
               ))}
             </div>
+
+            <FadeIn delay={320}>
+              <div className="mt-10 text-center">
+                <Link
+                  href="/how-it-works"
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-brand-green hover:underline"
+                >
+                  See the full walkthrough →
+                </Link>
+              </div>
+            </FadeIn>
           </div>
         </section>
 
         {/* ── CTA band ────────────────────────────────────────────────────── */}
         <FadeIn as="section" className="bg-brand-navy py-16 md:py-20">
           <div className="mx-auto max-w-6xl px-4 text-center md:px-6">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Stop losing leads to silence.
+            <p className="text-sm font-semibold uppercase tracking-wider text-brand-green">
+              Ready to reach every leader?
+            </p>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Your next send is one click away.
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-base text-zinc-300">
-              Every day without follow-up is a day someone else closes your prospect. LeaderSend makes follow-up effortless.
+              Set up your free account in under a minute. Send your first broadcast before your next event.
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <Link
-                href="/signup"
+                href="https://send.leaderhq.io/signup"
                 className="rounded-full bg-brand-green px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-green/90"
               >
-                Get Started Free
+                Start free
               </Link>
               <Link
-                href="/features"
+                href="/#features"
                 className="rounded-full border border-white/30 px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
               >
-                See All Features
+                See all features →
               </Link>
             </div>
           </div>
@@ -201,7 +260,34 @@ export default function MarketingHomePage() {
 
       <SiteFooter
         productSuffix="Send"
-        columns={[{"heading":"Product","links":[{"label":"Features","href":"/features"},{"label":"How It Works","href":"/how-it-works"},{"label":"Pricing","href":"/pricing"},{"label":"Field Leaders","href":"/for-field-leaders"},{"label":"System Status","href":"https://leaderhq.io/status"}]},{"heading":"Solutions","links":[{"label":"Field Leaders","href":"/for-field-leaders"},{"label":"Teams","href":"/for-teams"},{"label":"Blog & Resources","href":"/blog"}]},{"heading":"Company","links":[{"label":"About LeaderHQ","href":"/about"},{"label":"Contact","href":"/contact"},{"label":"Privacy Policy","href":"/privacy"},{"label":"Terms of Service","href":"/terms"},{"label":"Security & GDPR","href":"/security"}]}]}
+        columns={[
+          {
+            heading: 'Product',
+            links: [
+              { label: 'Features', href: '/#features' },
+              { label: 'How It Works', href: '/how-it-works' },
+              { label: 'Pricing', href: '/pricing' },
+              { label: 'System Status', href: 'https://leaderhq.io/status' },
+            ],
+          },
+          {
+            heading: 'Solutions',
+            links: [
+              { label: 'Field Leaders', href: '/for-teams' },
+              { label: 'Blog & Resources', href: '/blog' },
+            ],
+          },
+          {
+            heading: 'Company',
+            links: [
+              { label: 'About', href: '/about' },
+              { label: 'Contact', href: '/contact' },
+              { label: 'Privacy Policy', href: '/privacy' },
+              { label: 'Terms of Service', href: '/terms' },
+              { label: 'Security & GDPR', href: '/security' },
+            ],
+          },
+        ]}
       />
     </div>
   );

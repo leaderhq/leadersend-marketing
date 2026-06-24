@@ -2,115 +2,67 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SuiteBar, SiteNav, SiteFooter, FadeIn } from '@leader/marketing-ui';
 
-const APP_URL = 'https://leads.leaderhq.io';
+const APP_URL = 'https://send.leaderhq.io';
 
 export const metadata: Metadata = {
-  title: 'How It Works — LeaderLeads',
+  title: 'How It Works — LeaderSend',
   description:
-    'From handshake to Leader CRM in one tap. Five steps, under two minutes to set up — see exactly how LeaderLeads captures, stamps, and follows up on every lead.',
+    'From roster import to delivered broadcast in minutes. See exactly how LeaderSend connects your list, builds your send, and tracks every open and click.',
   alternates: { canonical: '/how-it-works' },
 };
 
-const LINK_CLASS = 'text-brand-green font-semibold hover:underline';
-
-const STEPS: { n: number; title: string; body: React.ReactNode }[] = [
+const STEPS: { n: string; title: string; body: string }[] = [
   {
-    n: 1,
-    title: 'Create your card in 60 seconds',
-    body: 'Click "Get Your Free Card," add your name, title, and contact info. Your professional digital card is live immediately. No design skills, no waiting period, no credit card required. Just a card that works.',
+    n: '01',
+    title: 'Connect your list.',
+    body: 'Import your team roster or let LeaderSend pull it from LeaderHQ automatically. Your contacts are ready in seconds — no CSV gymnastics, no manual copy-paste.',
   },
   {
-    n: 2,
-    title: 'Add to your wallet. Activate Event Mode.',
-    body: "Add your card to Apple Wallet or Google Wallet — one tap and it's there permanently, available even with no signal. Then activate Event Mode: one tap turns your entire screen into a high-contrast QR that anyone can scan from their camera app with no download required.",
+    n: '02',
+    title: 'Build your send.',
+    body: 'Choose a broadcast, drip sequence, or transactional template. Write once, send to everyone — or let automation send for you on the schedule you set.',
   },
   {
-    n: 3,
-    title: 'Share at any event — QR, text, link, or phone tap',
-    body: (
-      <>
-        At your next meeting, expo, conference, or door-to-door stop, share however fits the
-        moment. Hold up the QR screen. Text the link. Or use NFC — Near-Field Communication, the built-in feature on most modern smartphones that transfers your contact in one touch, no scanning required. Think of it like a digital handshake: two phones tap and it&apos;s done.{' '}
-        <Link href="/how-it-works#event-mode" className={LINK_CLASS}>
-          Event Mode
-        </Link>{' '}
-        means the person you&apos;re talking to saves your contact in seconds
-        with no friction on their end — no app, no login, no steps.
-      </>
-    ),
-  },
-  {
-    n: 4,
-    title: 'Memory Moment — stamp the meeting (Pro)',
-    body: (
-      <>
-        For your warmest conversations, take a quick photo together.{' '}
-        <Link href="/memory-moment" className={LINK_CLASS}>
-          Memory Moment
-        </Link>{' '}
-        stamps the date, time, and location and emails it to both of you within
-        seconds. They have the context. You have the opener. Tuesday&apos;s
-        follow-up writes itself before you&apos;ve opened a blank email.
-      </>
-    ),
-  },
-  {
-    n: 5,
-    title: 'Follow up with everyone. Miss no one.',
-    body: (
-      <>
-        Your lead inbox captures every person who engages with your card,
-        organized by timestamp. Your running list is always current and ready
-        to work. Contacts flow natively into{' '}
-        <Link href="/for-teams" className={LINK_CLASS}>
-          Leader CRM
-        </Link>{' '}
-        — the CRM built for the Leader Suite — or connect to Salesforce,
-        HubSpot, and hundreds of other tools via{' '}
-        <a
-          href="https://zapier.com"
-          target="_blank"
-          rel="noreferrer"
-          className={LINK_CLASS}
-        >
-          Zapier
-        </a>
-        . The reconstruction work that used to take an hour after every event
-        now takes minutes.
-      </>
-    ),
+    n: '03',
+    title: 'Watch it land.',
+    body: 'Real-time delivery stats, open rates, and click tracking. Know exactly who got your message and who needs a nudge. No vanity metrics — just the data that matters.',
   },
 ];
 
 const FAQS = [
   {
-    q: 'Do they need to download an app?',
-    a: "No. Never. The person receiving your card needs only a phone camera to scan your QR code. No app, no account, no friction on their side. That's intentional — every extra step they have to take is a lead you lose before the conversation even ends.",
+    q: 'How does LeaderSend pull contacts from LeaderHQ?',
+    a: 'LeaderSend connects to your LeaderHQ account using your existing login. Your team roster syncs automatically — when a new teammate joins LeaderHQ, they appear in LeaderSend within minutes. No CSV exports, no manual imports required.',
   },
   {
-    q: 'What if the venue wifi goes down?',
-    a: 'Two things work completely offline after you\'ve opened them once. Event Mode saves your card locally the first time you load it — after that, the QR generates on-device with no server call, no wifi, no signal required. Your digital wallet card (Apple Wallet or Google Wallet) is stored on your device the moment you add it, available even in airplane mode. Open Event Mode once before you leave for the venue and you\'re covered. Hold up the screen, they scan, done.',
+    q: 'What is the difference between a broadcast and a drip sequence?',
+    a: 'A broadcast is a one-time send to your entire list or a segment — an event recap, a product update, a recognition blast. A drip sequence is an automated series that sends on a schedule: a new teammate triggers Day 0 welcome, Day 3 training links, Day 7 check-in, and so on — all without you lifting a finger after setup.',
   },
   {
-    q: 'How does Memory Moment work exactly?',
-    a: 'Memory Moment requires a contact first — the person needs to have scanned your card so they exist in your leads. Once they do, open that lead, tap Add Memory Moment, and it opens your camera. Take the photo together right there in the moment. LeaderLeads automatically stamps the date, time, and location on the image and emails it to both of you within seconds. No editing, no uploading, no extra steps from either side.',
+    q: 'What are transactional emails and do I need a developer to use them?',
+    a: 'Transactional emails are system-triggered messages — OTP codes, password resets, receipts, account notifications. LeaderSend handles these via a simple API. You do need a developer to integrate the API into your product, but the dashboard and deliverability management require no technical skills.',
   },
   {
-    q: 'How does it flow into my CRM?',
-    a: "Every contact that engages with your card appears in your lead inbox with a timestamp. If you want it fully automatic — contacts flowing into your CRM the moment someone scans your card — that requires LeaderCRM, which is built to work hand-in-hand with LeaderLeads. For any other system (Salesforce, HubSpot, etc.) you export or upload your contacts manually, or set up a Zapier automation yourself. Zapier can handle the transfer once configured, but it is not automatic out of the box.",
+    q: 'How accurate are the open and click stats?',
+    a: 'LeaderSend tracks opens via a pixel and clicks via redirect links. Open rates are directionally accurate but can undercount on email clients that block pixels (like Apple Mail privacy protection). Click tracking is highly reliable. The dashboard shows both alongside delivery and bounce data.',
   },
 ];
 
 export default function HowItWorksPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900">
-      <SuiteBar appUrl="https://task.leaderhq.io" />
+      <SuiteBar appUrl={APP_URL} />
       <SiteNav
-        productSuffix="Leads"
-        links={[{ label: "How It Works", href: "/how-it-works" }, { label: "Memory Moment", href: "/memory-moment" }, { label: "Solutions", href: "#" }, { label: "Blog", href: "/blog" }]}
-        ctaLabel="Get Your Free Card"
-        ctaHref="/signup"
-        loginHref="https://leads.leaderhq.io/login"
+        productSuffix="Send"
+        links={[
+          { label: 'Features', href: '/#features' },
+          { label: 'How It Works', href: '/how-it-works' },
+          { label: 'Pricing', href: '/pricing' },
+          { label: 'Blog', href: '/blog' },
+        ]}
+        ctaLabel="Start free"
+        ctaHref={`${APP_URL}/signup`}
+        loginHref={`${APP_URL}/login`}
       />
       <main className="flex-1">
         <Hero />
@@ -119,8 +71,35 @@ export default function HowItWorksPage() {
         <CtaBand />
       </main>
       <SiteFooter
-        productSuffix="Leads"
-        columns={[{"heading":"Product","links":[{"label":"How It Works","href":"/how-it-works"},{"label":"Memory Moment","href":"/memory-moment"},{"label":"Event Mode","href":"/how-it-works#event-mode"},{"label":"Pricing","href":"/pricing"},{"label":"System Status","href":"https://leaderhq.io/status"}]},{"heading":"Solutions","links":[{"label":"Network Marketing","href":"/for-network-marketing"},{"label":"Conferences & Events","href":"/for-conferences"},{"label":"Summer Sales","href":"/for-summer-sales"},{"label":"Sales Teams","href":"/for-teams"},{"label":"Blog & Resources","href":"/blog"}]},{"heading":"Company","links":[{"label":"About LeaderHQ","href":"/about"},{"label":"Contact","href":"/contact"},{"label":"Privacy Policy","href":"/privacy"},{"label":"Terms of Service","href":"/terms"},{"label":"Security & GDPR","href":"/security"}]}]}
+        productSuffix="Send"
+        columns={[
+          {
+            heading: 'Product',
+            links: [
+              { label: 'Features', href: '/#features' },
+              { label: 'How It Works', href: '/how-it-works' },
+              { label: 'Pricing', href: '/pricing' },
+              { label: 'System Status', href: 'https://leaderhq.io/status' },
+            ],
+          },
+          {
+            heading: 'Solutions',
+            links: [
+              { label: 'Field Leaders', href: '/for-teams' },
+              { label: 'Blog & Resources', href: '/blog' },
+            ],
+          },
+          {
+            heading: 'Company',
+            links: [
+              { label: 'About', href: '/about' },
+              { label: 'Contact', href: '/contact' },
+              { label: 'Privacy Policy', href: '/privacy' },
+              { label: 'Terms of Service', href: '/terms' },
+              { label: 'Security & GDPR', href: '/security' },
+            ],
+          },
+        ]}
       />
     </div>
   );
@@ -128,23 +107,17 @@ export default function HowItWorksPage() {
 
 function Hero() {
   return (
-    <section
-      className="text-white"
-      style={{ background: '#0d1b2e' }}
-    >
+    <section className="bg-brand-navy text-white">
       <div className="mx-auto max-w-[720px] px-4 py-20 text-center sm:px-6 sm:py-24">
         <FadeIn>
-          <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-green">
-            Simple by design
-          </span>
-          <h1 className="mt-5 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl">
-            From handshake to CRM
+          <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl">
+            From roster to delivered
             <br />
-            in one tap.
+            in minutes.
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-zinc-300">
-            Five steps. Under two minutes for setup. Works for the life of the
-            card — no maintenance, no reprints, no expiration.
+            Three steps. Works for broadcasts, drip sequences, and transactional
+            email — all from one dashboard.
           </p>
         </FadeIn>
       </div>
@@ -159,7 +132,7 @@ function Steps() {
         {STEPS.map((step, i) => (
           <FadeIn as="li" key={step.n} delay={i * 60}>
             <div className="flex gap-5 sm:gap-6">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-green text-lg font-bold text-white shadow-md shadow-brand-green/30">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-green text-base font-bold text-white shadow-md shadow-brand-green/30">
                 {step.n}
               </div>
               <div>
@@ -178,10 +151,7 @@ function Steps() {
 
 function Faqs() {
   return (
-    <section
-      className="border-y border-zinc-100"
-      style={{ background: 'color-mix(in srgb, #0d1b2e 4%, #fff)' }}
-    >
+    <section className="border-y border-zinc-100 bg-zinc-50">
       <div className="mx-auto max-w-[720px] px-4 py-20 sm:px-6 sm:py-24">
         <FadeIn>
           <h2 className="text-center text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl">
@@ -207,25 +177,24 @@ function Faqs() {
 
 function CtaBand() {
   return (
-    <section style={{ background: '#0d1b2e' }}>
+    <section className="bg-brand-navy">
       <div className="mx-auto max-w-[820px] px-4 py-20 text-center sm:px-6 sm:py-24">
         <FadeIn>
           <span className="text-sm font-semibold uppercase tracking-wider text-brand-green">
             Ready to see it in action?
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Your card is free. Setup is 60 seconds.
+            Your first broadcast is one click away.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-lg text-zinc-300">
-            Your next event is the test. Show up with a system instead of a
-            stack of paper.
+            Set up in under a minute. Free forever on the Starter plan.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href={`${APP_URL}/login`}
+              href={`${APP_URL}/signup`}
               className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-brand-green px-7 text-base font-semibold text-white shadow-lg shadow-black/20 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Get Your Free Card
+              Start free
             </a>
             <Link
               href="/pricing"
