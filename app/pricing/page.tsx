@@ -2,24 +2,22 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SuiteBar, SiteNav, SiteFooter, FadeIn } from '@leader/marketing-ui';
 
-const APP_URL = 'https://leads.leaderhq.io';
-const GREEN_AA = '#5cb85c';
+const APP_URL = 'https://send.leaderhq.io';
+const GREEN_AA = '#5CAC23';
 
 export const metadata: Metadata = {
-  title: 'Pricing — LeaderLeads',
+  title: 'Pricing — LeaderSend',
   description:
-    'Simple pricing, free where it counts. Your card and sharing are free forever — pay only for the follow-up features that close more deals.',
+    'Simple pricing for LeaderSend. Start free with up to 500 contacts — upgrade when you\'re ready for unlimited contacts, drip sequences, and transactional email.',
   alternates: { canonical: '/pricing' },
 };
-
-const LINK_CLASS = 'text-brand-green font-semibold hover:underline';
 
 interface Plan {
   name: string;
   price: string;
   cadence: string;
   desc: string;
-  features: React.ReactNode[];
+  features: string[];
   highlighted?: boolean;
   cta: string;
   ctaStyle: 'outline' | 'green' | 'dark';
@@ -27,103 +25,93 @@ interface Plan {
 
 const PLANS: Plan[] = [
   {
-    name: 'Free',
+    name: 'Starter',
     price: '$0',
     cadence: 'forever',
-    desc: 'Everything you need to show up professionally at any event.',
+    desc: 'Everything you need to start reaching your team and new teammates.',
     features: [
-      'Your card + sharing',
-      <>
-        <Link href="/how-it-works" className={LINK_CLASS}>
-          Event Mode
-        </Link>{' '}
-        + full-screen QR
-      </>,
-      'Add to Apple/Google Wallet',
-      'View contact counts',
+      'Up to 500 contacts',
+      'Broadcast sends',
+      'Basic analytics',
+      'LeaderHQ integration',
     ],
-    cta: 'Get Started Free',
+    cta: 'Start free',
     ctaStyle: 'outline',
   },
   {
-    name: 'Pro',
-    price: '$8',
-    cadence: '/mo · ~$6.40/mo billed yearly',
-    desc: 'For serious sales pros who follow up on every single conversation.',
+    name: 'Growth',
+    price: '$19',
+    cadence: '/mo · ~$15/mo billed yearly',
+    desc: 'For leaders who are building fast and need automation that keeps up.',
     features: [
-      'Everything in Free',
-      'Lead Inbox + instant email alerts',
-      <>
-        <Link href="/memory-moment" className={LINK_CLASS}>
-          Memory Moment
-        </Link>{' '}
-        + shared photo email
-      </>,
-      'Remove LeaderLeads footer',
+      'Everything in Starter',
+      'Unlimited contacts',
+      'Drip & onboarding sequences',
+      'Transactional email API',
+      'Advanced analytics',
     ],
     highlighted: true,
-    cta: 'Start Pro',
+    cta: 'Start Growth',
     ctaStyle: 'green',
   },
   {
-    name: 'Team',
-    price: '$5',
-    cadence: '/seat/mo · 5-seat minimum',
-    desc: 'For downlines, field teams, and organizations at scale.',
+    name: 'Organization',
+    price: '$49',
+    cadence: '/mo · Unlimited seats',
+    desc: 'For organizations that need sub-accounts, custom domains, and priority support.',
     features: [
-      'Everything in Pro for every seat',
-      'Assign seats to your downline',
-      <>
-        Flat{' '}
-        <Link href="/for-teams" className={LINK_CLASS}>
-          team roster
-        </Link>{' '}
-        view
-      </>,
-      'Team contact visibility',
+      'Everything in Growth',
+      'Team sub-accounts',
+      'Custom sending domain',
+      'Priority support',
     ],
-    cta: 'Start a team',
+    cta: 'Start Organization',
     ctaStyle: 'dark',
   },
 ];
 
 const FAQS = [
   {
-    q: 'Is the free plan actually free forever?',
-    a: 'Yes. No credit card required. No trial that expires. Your card, sharing, Event Mode, and wallet integration are free permanently. We built it this way because we believe every sales professional deserves a professional card regardless of budget — and the free plan is a real, functional tool, not a stripped preview.',
+    q: 'Is the Starter plan actually free forever?',
+    a: 'Yes. No credit card required. No trial that expires. Up to 500 contacts, broadcast sends, and LeaderHQ integration are free permanently. We built it this way because we believe every field leader deserves real communication tools regardless of budget.',
   },
   {
-    q: 'What exactly is included in Memory Moment?',
-    a: 'Memory Moment is a Pro feature. It lets you take a photo at the moment of connection with someone. LeaderLeads stamps it with the date, time, and location, then emails it to both you and your contact within seconds. No editing, no uploading, no extra steps from either party. It just happens in the background and shows up in both inboxes.',
+    q: 'What are drip and onboarding sequences?',
+    a: 'Drip sequences are automated email series that send on a schedule you define. When a new teammate joins, a pre-built onboarding drip kicks off automatically — welcome email, training links, check-ins — without you lifting a finger after setup.',
   },
   {
-    q: 'How does Team plan billing work?',
-    a: 'The Team plan is $5 per seat per month with a 5-seat minimum ($25/month minimum). You can add or remove seats at any time — billing adjusts at the start of your next cycle. There are no per-scan fees, no usage-based surprises, and no hidden charges.',
+    q: 'What is the transactional email API?',
+    a: 'The transactional email API lets your products send system emails — OTP codes, password resets, receipts, notifications — through LeaderSend. It handles delivery reliability and tracking so you can see every transactional send in your dashboard.',
+  },
+  {
+    q: 'What does "custom sending domain" mean?',
+    a: 'Instead of email arriving from a LeaderSend address, your broadcasts and drips land in inboxes as coming from your own domain (e.g., team@yourdomain.com). This improves deliverability and looks more professional to recipients.',
   },
   {
     q: 'Can I switch plans at any time?',
-    a: 'Yes, at any time. Upgrade from Free to Pro instantly. Start a Team plan by purchasing seats and assigning them to team members. Downgrade or cancel at the end of your billing period. No lock-in, no penalty.',
+    a: 'Yes. Upgrade from Starter to Growth or Organization instantly. Downgrade or cancel at the end of your billing period. No lock-in, no penalty.',
   },
   {
-    q: 'Do you offer discounts for large organizations?',
-    a: 'For teams larger than 50 seats — summer sales organizations, large MLM downlines, enterprise exhibitor teams — reach out at support@leaderhq.io with "Team Plan" in the subject line. We offer custom pricing for organizations at scale.',
-  },
-  {
-    q: 'What happens when someone on my team leaves?',
-    a: "You can reassign their seat to a new team member instantly. The card updates to the new person's information. No reprinting, no wasted budget, no gap in coverage during the transition.",
+    q: 'What happens to my contacts if I downgrade?',
+    a: 'Your contacts are always yours. If you downgrade to Starter, contacts above 500 are paused — not deleted. Upgrade again and they are immediately active. You never lose data.',
   },
 ];
 
 export default function PricingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900">
-      <SuiteBar appUrl="https://task.leaderhq.io" />
+      <SuiteBar appUrl={APP_URL} />
       <SiteNav
-        productSuffix="Leads"
-        links={[{ label: "How It Works", href: "/how-it-works" }, { label: "Memory Moment", href: "/memory-moment" }, { label: "Solutions", href: "#" }, { label: "Blog", href: "/blog" }]}
-        ctaLabel="Get Your Free Card"
-        ctaHref="/signup"
-        loginHref="https://leads.leaderhq.io/login"
+        productSuffix="Send"
+        links={[
+          { label: 'Features', href: '/#features' },
+          { label: 'How It Works', href: '/how-it-works' },
+          { label: 'Pricing', href: '/pricing' },
+          { label: 'Blog', href: '/blog' },
+        ]}
+        ctaLabel="Start free"
+        ctaHref={`${APP_URL}/signup`}
+        loginHref={`${APP_URL}/login`}
       />
       <main className="flex-1">
         <Hero />
@@ -132,8 +120,35 @@ export default function PricingPage() {
         <CtaBand />
       </main>
       <SiteFooter
-        productSuffix="Leads"
-        columns={[{"heading":"Product","links":[{"label":"How It Works","href":"/how-it-works"},{"label":"Memory Moment","href":"/memory-moment"},{"label":"Event Mode","href":"/how-it-works#event-mode"},{"label":"Pricing","href":"/pricing"},{"label":"System Status","href":"https://leaderhq.io/status"}]},{"heading":"Solutions","links":[{"label":"Network Marketing","href":"/for-network-marketing"},{"label":"Conferences & Events","href":"/for-conferences"},{"label":"Summer Sales","href":"/for-summer-sales"},{"label":"Sales Teams","href":"/for-teams"},{"label":"Blog & Resources","href":"/blog"}]},{"heading":"Company","links":[{"label":"About LeaderHQ","href":"/about"},{"label":"Contact","href":"/contact"},{"label":"Privacy Policy","href":"/privacy"},{"label":"Terms of Service","href":"/terms"},{"label":"Security & GDPR","href":"/security"}]}]}
+        productSuffix="Send"
+        columns={[
+          {
+            heading: 'Product',
+            links: [
+              { label: 'Features', href: '/#features' },
+              { label: 'How It Works', href: '/how-it-works' },
+              { label: 'Pricing', href: '/pricing' },
+              { label: 'System Status', href: 'https://leaderhq.io/status' },
+            ],
+          },
+          {
+            heading: 'Solutions',
+            links: [
+              { label: 'Field Leaders', href: '/for-teams' },
+              { label: 'Blog & Resources', href: '/blog' },
+            ],
+          },
+          {
+            heading: 'Company',
+            links: [
+              { label: 'About', href: '/about' },
+              { label: 'Contact', href: '/contact' },
+              { label: 'Privacy Policy', href: '/privacy' },
+              { label: 'Terms of Service', href: '/terms' },
+              { label: 'Security & GDPR', href: '/security' },
+            ],
+          },
+        ]}
       />
     </div>
   );
@@ -141,10 +156,7 @@ export default function PricingPage() {
 
 function Hero() {
   return (
-    <section
-      className="text-white"
-      style={{ background: '#0d1b2e' }}
-    >
+    <section className="bg-brand-navy text-white">
       <div className="mx-auto max-w-[720px] px-4 py-20 text-center sm:px-6 sm:py-24">
         <FadeIn>
           <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl">
@@ -153,11 +165,11 @@ function Hero() {
             Free where it counts.
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-zinc-300">
-            Your card and sharing are free forever. Pay only for the follow-up
-            features that close more deals.
+            Start free with up to 500 contacts. Upgrade when you&apos;re ready
+            for unlimited contacts, drip sequences, and transactional email.
           </p>
           <span className="mt-8 inline-block rounded-full border border-brand-green/40 bg-brand-green/15 px-4 py-2 text-sm font-bold text-brand-green">
-            Save 20% with annual billing
+            Save ~20% with annual billing
           </span>
         </FadeIn>
       </div>
@@ -167,10 +179,7 @@ function Hero() {
 
 function PlansGrid() {
   return (
-    <section
-      className="border-y border-zinc-100"
-      style={{ background: 'color-mix(in srgb, #5cb85c 6%, #fff)' }}
-    >
+    <section className="border-y border-zinc-100 bg-zinc-50">
       <div className="mx-auto max-w-[1100px] px-4 py-20 sm:px-6 sm:py-24">
         <div className="grid items-stretch gap-5 sm:grid-cols-3">
           {PLANS.map((plan, i) => (
@@ -205,8 +214,8 @@ function PlansGrid() {
               </p>
               <hr className="my-5 border-zinc-100" />
               <ul className="flex-1 space-y-2.5 text-sm text-zinc-600">
-                {plan.features.map((f, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2">
                     <span style={{ color: GREEN_AA }} aria-hidden>
                       ✓
                     </span>
@@ -215,7 +224,7 @@ function PlansGrid() {
                 ))}
               </ul>
               <a
-                href={`${APP_URL}/login`}
+                href={`${APP_URL}/signup`}
                 className={`mt-6 inline-flex min-h-[44px] w-full items-center justify-center rounded-xl px-4 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 ${
                   plan.ctaStyle === 'green'
                     ? 'bg-brand-green text-white hover:brightness-110 focus-visible:outline-brand-navy'
@@ -260,25 +269,24 @@ function Faqs() {
 
 function CtaBand() {
   return (
-    <section style={{ background: '#0d1b2e' }}>
+    <section className="bg-brand-navy">
       <div className="mx-auto max-w-[820px] px-4 py-20 text-center sm:px-6 sm:py-24">
         <FadeIn>
           <span className="text-sm font-semibold uppercase tracking-wider text-brand-green">
-            Ready to stop losing leads?
+            Ready to reach every leader?
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Start free. Upgrade when you&apos;re ready.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-lg text-zinc-300">
-            No credit card. No time limit. Just a card that works. Your next
-            event is the proof of concept.
+            No credit card. No time limit. Set up in under a minute and send your first broadcast before your next event.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href={`${APP_URL}/login`}
+              href={`${APP_URL}/signup`}
               className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-brand-green px-7 text-base font-semibold text-white shadow-lg shadow-black/20 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Get Your Free Card
+              Start free
             </a>
             <Link
               href="/how-it-works"

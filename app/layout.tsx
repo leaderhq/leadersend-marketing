@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://leadersend.io"),
-  title: "LeaderSend — Email & messaging for field leaders",
-  description: "LeaderSend gives field leaders a dead-simple way to broadcast messages, track opens, and follow up with every lead — without leaving the Leader ecosystem.",
+  title: "LeaderSend — Email Marketing for Leaders",
+  description: "Transactional and broadcast email built for field leaders. One dashboard to onboard new teammates, blast event recaps, and keep your whole organization in the loop.",
   applicationName: "LeaderSend",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "LeaderSend",
-    title: "LeaderSend — Email & messaging for field leaders",
-    description: "Broadcast messages, track opens, and follow up with every lead — without leaving the Leader ecosystem.",
+    title: "LeaderSend — Email Marketing for Leaders",
+    description: "Transactional and broadcast email built for field leaders. One dashboard to onboard new teammates, blast event recaps, and keep your whole organization in the loop.",
     url: "https://leadersend.io",
   },
   twitter: {
     card: "summary_large_image",
-    title: "LeaderSend — Email & messaging for field leaders",
-    description: "Broadcast messages, track opens, and follow up with every lead — without leaving the Leader ecosystem.",
+    title: "LeaderSend — Email Marketing for Leaders",
+    description: "Transactional and broadcast email built for field leaders. One dashboard to onboard new teammates, blast event recaps, and keep your whole organization in the loop.",
   },
 };
 
