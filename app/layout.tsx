@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   description: "Transactional and broadcast email built for field leaders. One dashboard to onboard new teammates, blast event recaps, and keep your whole organization in the loop.",
   applicationName: "LeaderSend",
   manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon-light.png", type: "image/png", media: "(prefers-color-scheme: light)" },
+      { url: "/favicon-dark.png", type: "image/png", media: "(prefers-color-scheme: dark)" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+  },
   appleWebApp: {
     capable: true,
     title: "LeaderSend",
